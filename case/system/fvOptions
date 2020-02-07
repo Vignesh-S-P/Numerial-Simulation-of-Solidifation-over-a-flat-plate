@@ -1,0 +1,40 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+domain
+    {
+        type            solidificationMeltingSource;
+        active          yes;
+
+
+        solidificationMeltingSourceCoeffs
+        {
+            selectionMode   all;
+
+            Tmelt           273;
+            L               333700;
+            //thermoMode      thermo;
+	        thermoMode      lookup;
+
+            Cp              CpRef;
+            CpRef           4200;
+
+            beta            0; //thermal expansion coefficient
+            rhoRef          916;
+        }
+    }
+
+// ************************************************************************* //
